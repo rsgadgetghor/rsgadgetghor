@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>bKash Payment - RS Gadget - ঘর</title>
+  <title>bKash Payment | RS Gadget - ঘর</title>
 
   <style>
     * {
@@ -14,236 +14,599 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f7f7f7;
+      background: linear-gradient(180deg, #fff0f6 0%, #f7f7f7 45%);
       color: #222;
     }
 
     .container {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
+      width: 100%;
+      max-width: 520px;
+      margin: auto;
+      padding: 18px;
     }
 
     .card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      background: #fff;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.09);
     }
 
-    .logo {
+    .brand {
       text-align: center;
       font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 8px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .brand span {
+      color: #e2136e;
     }
 
     .subtitle {
       text-align: center;
-      color: #666;
-      margin-bottom: 25px;
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 22px;
     }
 
-    .payment-box {
-      background: #fff0f5;
-      border-radius: 14px;
-      padding: 20px;
+    .bkash-header {
+      background: linear-gradient(135deg, #e2136e, #c90058);
+      color: white;
+      border-radius: 20px;
+      padding: 22px;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
-    .payment-icon {
+    .bkash-icon {
       font-size: 42px;
-      margin-bottom: 10px;
     }
 
-    .payment-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 8px;
+    .bkash-title {
+      font-size: 21px;
+      font-weight: 800;
+      margin-top: 6px;
+    }
+
+    .payment-type {
+      margin-top: 7px;
+      font-size: 14px;
+      opacity: .92;
+    }
+
+    .amount-box {
+      background: #fff5f9;
+      border: 1px solid #ffd0e2;
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .amount-label {
+      color: #777;
+      font-size: 14px;
     }
 
     .amount {
-      font-size: 34px;
-      font-weight: bold;
-      margin: 12px 0;
+      color: #e2136e;
+      font-size: 38px;
+      font-weight: 900;
+      margin-top: 5px;
     }
 
-    .info {
-      background: #f5f5f5;
-      padding: 15px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      line-height: 1.7;
+    .section {
+      background: #f8f8f8;
+      border-radius: 16px;
+      padding: 17px;
+      margin-bottom: 16px;
     }
 
-    .notice {
-      background: #fff8e1;
-      border: 1px solid #ffe082;
-      padding: 14px;
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #e5e5e5;
+      font-size: 14px;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .step {
+      background: white;
       border-radius: 12px;
+      padding: 12px;
+      margin-top: 9px;
+      border: 1px solid #eee;
       line-height: 1.6;
-      margin-bottom: 20px;
+      font-size: 14px;
     }
 
-    .pay-button {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 12px;
+    .step-number {
+      display: inline-flex;
+      width: 27px;
+      height: 27px;
+      align-items: center;
+      justify-content: center;
       background: #e2136e;
       color: white;
-      font-size: 18px;
+      border-radius: 50%;
       font-weight: bold;
+      margin-right: 7px;
+    }
+
+    .bkash-number {
+      background: white;
+      border: 2px dashed #e2136e;
+      border-radius: 14px;
+      padding: 15px;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .bkash-number small {
+      display: block;
+      color: #777;
+      margin-bottom: 5px;
+    }
+
+    .bkash-number strong {
+      color: #e2136e;
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+
+    .important {
+      background: #fff8df;
+      border: 1px solid #f1d477;
+      border-radius: 14px;
+      padding: 14px;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #e2136e;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      background: #e2136e;
+      color: white;
+      font-size: 17px;
+      font-weight: 800;
       cursor: pointer;
     }
 
-    .pay-button:hover {
-      opacity: 0.9;
+    .error {
+      color: #d00000;
+      font-size: 13px;
+      margin-top: 7px;
+      display: none;
     }
 
-    .back-button {
+    .back-btn {
       display: block;
       text-align: center;
-      margin-top: 15px;
-      padding: 14px;
-      border-radius: 12px;
-      background: #eee;
-      color: #222;
       text-decoration: none;
-      font-weight: bold;
+      color: #333;
+      background: #eeeeee;
+      padding: 14px;
+      border-radius: 14px;
+      margin-top: 12px;
+      font-weight: 700;
     }
 
     .footer {
       text-align: center;
-      margin-top: 20px;
-      color: #777;
-      font-size: 13px;
+      color: #888;
+      font-size: 12px;
+      margin-top: 18px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <div class="card">
+  <div class="card">
 
-      <div class="logo">
-        RS Gadget - ঘর
+    <div class="brand">
+      RS Gadget <span>- ঘর</span>
+    </div>
+
+    <div class="subtitle">
+      bKash Payment
+    </div>
+
+
+    <div class="bkash-header">
+
+      <div class="bkash-icon">💳</div>
+
+      <div class="bkash-title">
+        bKash Payment
       </div>
 
-      <div class="subtitle">
-        Secure bKash Payment
-      </div>
-
-      <div class="payment-box">
-
-        <div class="payment-icon">
-          💳
-        </div>
-
-        <div class="payment-title" id="paymentTitle">
-          bKash Payment
-        </div>
-
-        <div class="amount" id="amount">
-          ৳0
-        </div>
-
-      </div>
-
-      <div class="info">
-
-        <strong>📦 Product:</strong>
-        K8 Wireless Earbuds
-        <br>
-
-        <strong>🔢 Quantity:</strong>
-        <span id="quantity">1</span>
-        <br>
-
-        <strong>🚚 Delivery Charge:</strong>
-        ৳<span id="delivery">0</span>
-
-      </div>
-
-      <div class="notice">
-
-        ⚠️ <strong>Payment Notice</strong><br><br>
-
-        এই পেজটি বর্তমানে bKash payment-এর জন্য প্রস্তুত করা হচ্ছে।
-        <br><br>
-
-        প্রকৃত bKash payment link / payment system পরে এখানে যুক্ত করা হবে।
-
-      </div>
-
-      <button class="pay-button" onclick="startPayment()">
-        💳 বিকাশ পেমেন্ট করুন
-      </button>
-
-      <a href="index.html" class="back-button">
-        ← Order Page-এ ফিরে যান
-      </a>
-
-      <div class="footer">
-        © RS Gadget - ঘর
+      <div class="payment-type" id="paymentType">
+        Advance Payment
       </div>
 
     </div>
 
+
+    <!-- Amount -->
+
+    <div class="amount-box">
+
+      <div class="amount-label">
+        আপনাকে পরিশোধ করতে হবে
+      </div>
+
+      <div class="amount" id="amount">
+        ৳0
+      </div>
+
+    </div>
+
+
+    <!-- Payment Details -->
+
+    <div class="section">
+
+      <div class="section-title">
+        📦 Payment Details
+      </div>
+
+      <div class="info-row">
+        <span>Product</span>
+        <strong>K8 Wireless Earbuds</strong>
+      </div>
+
+      <div class="info-row">
+        <span>Quantity</span>
+        <strong id="quantity">1</strong>
+      </div>
+
+      <div class="info-row">
+        <span>Delivery Charge</span>
+        <strong>
+          ৳<span id="delivery">0</span>
+        </strong>
+      </div>
+
+    </div>
+
+
+    <!-- Instructions -->
+
+    <div class="section">
+
+      <div class="section-title">
+        📲 bKash দিয়ে Payment করুন
+      </div>
+
+      <div class="step">
+        <span class="step-number">1</span>
+        আপনার <strong>bKash App</strong> খুলুন অথবা
+        মোবাইল থেকে <strong>*247#</strong> ডায়াল করুন।
+      </div>
+
+      <div class="step">
+        <span class="step-number">2</span>
+        <strong>Send Money</strong> নির্বাচন করুন।
+      </div>
+
+      <div class="bkash-number">
+
+        <small>
+          এই bKash নম্বরে টাকা পাঠাবেন
+        </small>
+
+        <strong>
+          01716862470
+        </strong>
+
+      </div>
+
+      <div class="step">
+        <span class="step-number">3</span>
+        উপরে দেখানো সঠিক Amount
+        <strong id="instructionAmount">৳0</strong>
+        Send Money করুন।
+      </div>
+
+      <div class="step">
+        <span class="step-number">4</span>
+        Payment সফল হওয়ার পর SMS/App থেকে
+        <strong>Transaction ID</strong> সংগ্রহ করুন।
+      </div>
+
+    </div>
+
+
+    <!-- Notice -->
+
+    <div class="important">
+
+      ⚠️ <strong>গুরুত্বপূর্ণ</strong>
+
+      <br><br>
+
+      টাকা পাঠানোর আগে Amount এবং bKash নম্বর
+      ভালোভাবে মিলিয়ে নিন।
+
+      <br><br>
+
+      টাকা পাঠানোর পর নিচে আপনার
+      <strong>Transaction ID</strong> দিন।
+
+      <br><br>
+
+      <strong>
+        Transaction ID এখানে অটো যাচাই করা হবে না।
+      </strong>
+
+      Payment পরে Admin নিজে যাচাই করবেন।
+
+    </div>
+
+
+    <!-- Transaction ID -->
+
+    <div class="section">
+
+      <div class="section-title">
+        🔐 Transaction ID
+      </div>
+
+      <label for="trxId">
+        আপনার Transaction ID লিখুন
+      </label>
+
+      <input
+        type="text"
+        id="trxId"
+        placeholder="Transaction ID লিখুন"
+        autocomplete="off"
+      >
+
+      <div class="error" id="error">
+        ❌ Transaction ID লিখুন।
+      </div>
+
+      <br>
+
+      <button
+        class="submit-btn"
+        onclick="submitPayment()"
+      >
+        ✅ Transaction ID Submit করুন
+      </button>
+
+    </div>
+
+
+    <a href="index.html" class="back-btn">
+      ← Order Page-এ ফিরে যান
+    </a>
+
+
+    <div class="footer">
+      © RS Gadget - ঘর
+    </div>
+
   </div>
 
-
-  <script>
-
-    const params = new URLSearchParams(window.location.search);
-
-    const amount = params.get("amount") || "0";
-    const payment = params.get("payment") || "";
-    const quantity = params.get("quantity") || "1";
-    const delivery = params.get("delivery") || "0";
+</div>
 
 
-    document.getElementById("amount").innerText =
-      "৳" + Number(amount).toLocaleString("en-BD");
+<script>
+
+  /*
+  ==========================================
+  URL DATA
+  ==========================================
+  */
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const amount =
+    Number(params.get("amount") || 0);
+
+  const payment =
+    params.get("payment") || "";
+
+  const quantity =
+    Number(params.get("quantity") || 1);
+
+  const delivery =
+    Number(params.get("delivery") || 0);
 
 
-    document.getElementById("quantity").innerText =
-      quantity;
+  /*
+  ==========================================
+  SHOW AMOUNT
+  ==========================================
+  */
+
+  const formattedAmount =
+    amount.toLocaleString("en-BD");
 
 
-    document.getElementById("delivery").innerText =
-      Number(delivery).toLocaleString("en-BD");
+  document.getElementById("amount").innerText =
+    "৳" + formattedAmount;
 
 
-    if (payment === "delivery_advance") {
+  document.getElementById("instructionAmount").innerText =
+    "৳" + formattedAmount;
 
-      document.getElementById("paymentTitle").innerText =
-        "Delivery Charge Advance";
+
+  document.getElementById("quantity").innerText =
+    quantity;
+
+
+  document.getElementById("delivery").innerText =
+    delivery.toLocaleString("en-BD");
+
+
+  /*
+  ==========================================
+  PAYMENT TYPE
+  ==========================================
+  */
+
+  if (payment === "delivery_advance") {
+
+    document.getElementById("paymentType").innerText =
+      "Delivery Charge Advance — 10% Discount";
+
+  }
+
+  else if (payment === "full_advance") {
+
+    document.getElementById("paymentType").innerText =
+      "Full Advance — 15% Discount";
+
+  }
+
+
+  /*
+  ==========================================
+  TRANSACTION ID SUBMIT
+  ==========================================
+  */
+
+  function submitPayment() {
+
+    const trxId =
+      document.getElementById("trxId")
+        .value
+        .trim();
+
+    const error =
+      document.getElementById("error");
+
+
+    /*
+    Transaction ID খালি হলে শুধু আটকাবে।
+    কোনো সত্যতা যাচাই করবে না।
+    */
+
+    if (trxId === "") {
+
+      error.style.display = "block";
+
+      return;
 
     }
 
-    else if (payment === "full_advance") {
 
-      document.getElementById("paymentTitle").innerText =
-        "Full Advance Payment";
-
-    }
+    error.style.display = "none";
 
 
-    function startPayment() {
+    /*
+    ==========================================
+    PAYMENT DATA SAVE
+    ==========================================
+    */
 
-      alert(
-        "bKash Payment System এখনও সংযুক্ত করা হয়নি।\n\n" +
-        "পরবর্তী ধাপে এখানে আসল bKash Payment System যুক্ত করা হবে।"
-      );
+    const paymentData = {
 
-    }
+      product: "K8 Wireless Earbuds",
 
-  </script>
+      quantity: quantity,
+
+      paymentType: payment,
+
+      amount: amount,
+
+      delivery: delivery,
+
+      transactionId: trxId
+
+    };
+
+
+    /*
+    Browser-এর localStorage-এ payment তথ্য রাখা হচ্ছে।
+    Order Page পরে এই তথ্য ব্যবহার করতে পারবে।
+    */
+
+    localStorage.setItem(
+      "paymentCompleted",
+      "yes"
+    );
+
+    localStorage.setItem(
+      "paymentTransactionId",
+      trxId
+    );
+
+    localStorage.setItem(
+      "paymentAmount",
+      amount
+    );
+
+    localStorage.setItem(
+      "paymentType",
+      payment
+    );
+
+    localStorage.setItem(
+      "paymentQuantity",
+      quantity
+    );
+
+    localStorage.setItem(
+      "paymentDelivery",
+      delivery
+    );
+
+
+    /*
+    ==========================================
+    ORDER PAGE-এ ফেরত
+    ==========================================
+    */
+
+    window.location.href =
+      "index.html?payment_submitted=yes";
+
+  }
+
+</script>
 
 </body>
 </html>
