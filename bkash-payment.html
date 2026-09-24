@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>bKash Payment - RS Gadget - ঘর</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .payment-box {
+      background: #fff0f5;
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .payment-icon {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .payment-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .amount {
+      font-size: 34px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .info {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .notice {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      padding: 14px;
+      border-radius: 12px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .pay-button {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      background: #e2136e;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .pay-button:hover {
+      opacity: 0.9;
+    }
+
+    .back-button {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      padding: 14px;
+      border-radius: 12px;
+      background: #eee;
+      color: #222;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="card">
+
+      <div class="logo">
+        RS Gadget - ঘর
+      </div>
+
+      <div class="subtitle">
+        Secure bKash Payment
+      </div>
+
+      <div class="payment-box">
+
+        <div class="payment-icon">
+          💳
+        </div>
+
+        <div class="payment-title" id="paymentTitle">
+          bKash Payment
+        </div>
+
+        <div class="amount" id="amount">
+          ৳0
+        </div>
+
+      </div>
+
+      <div class="info">
+
+        <strong>📦 Product:</strong>
+        K8 Wireless Earbuds
+        <br>
+
+        <strong>🔢 Quantity:</strong>
+        <span id="quantity">1</span>
+        <br>
+
+        <strong>🚚 Delivery Charge:</strong>
+        ৳<span id="delivery">0</span>
+
+      </div>
+
+      <div class="notice">
+
+        ⚠️ <strong>Payment Notice</strong><br><br>
+
+        এই পেজটি বর্তমানে bKash payment-এর জন্য প্রস্তুত করা হচ্ছে।
+        <br><br>
+
+        প্রকৃত bKash payment link / payment system পরে এখানে যুক্ত করা হবে।
+
+      </div>
+
+      <button class="pay-button" onclick="startPayment()">
+        💳 বিকাশ পেমেন্ট করুন
+      </button>
+
+      <a href="index.html" class="back-button">
+        ← Order Page-এ ফিরে যান
+      </a>
+
+      <div class="footer">
+        © RS Gadget - ঘর
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    const params = new URLSearchParams(window.location.search);
+
+    const amount = params.get("amount") || "0";
+    const payment = params.get("payment") || "";
+    const quantity = params.get("quantity") || "1";
+    const delivery = params.get("delivery") || "0";
+
+
+    document.getElementById("amount").innerText =
+      "৳" + Number(amount).toLocaleString("en-BD");
+
+
+    document.getElementById("quantity").innerText =
+      quantity;
+
+
+    document.getElementById("delivery").innerText =
+      Number(delivery).toLocaleString("en-BD");
+
+
+    if (payment === "delivery_advance") {
+
+      document.getElementById("paymentTitle").innerText =
+        "Delivery Charge Advance";
+
+    }
+
+    else if (payment === "full_advance") {
+
+      document.getElementById("paymentTitle").innerText =
+        "Full Advance Payment";
+
+    }
+
+
+    function startPayment() {
+
+      alert(
+        "bKash Payment System এখনও সংযুক্ত করা হয়নি।\n\n" +
+        "পরবর্তী ধাপে এখানে আসল bKash Payment System যুক্ত করা হবে।"
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
