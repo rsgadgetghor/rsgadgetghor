@@ -65,16 +65,16 @@
       color:white;
     }
 
+    /* ================= LOGO ================= */
+
     .brand-logo{
       width:48px;
       height:48px;
       border-radius:14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      font-weight:900;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      display:block;
+      object-fit:contain;
+      background:#ffffff;
+      padding:4px;
       box-shadow:0 6px 18px rgba(109,40,217,.4);
     }
 
@@ -617,21 +617,29 @@
 <header>
   <div class="container header-content">
 
+    <!-- ================= LOGO ================= -->
+
     <a href="#" class="brand">
-      <!-- আপনার আসল logo থাকলে brand-logo-এর ভেতরের RS অংশটি image দিয়ে replace করা যাবে -->
-      <div class="brand-logo">RS</div>
+
+      <img src="logo.png"
+           alt="RS Gadget - ঘর Logo"
+           class="brand-logo">
 
       <div class="brand-text">
         <strong>RS Gadget - ঘর</strong>
         <span>আপনার বিশ্বস্ত অনলাইন গ্যাজেট শপ</span>
       </div>
+
     </a>
 
     <div class="header-actions">
       <a class="header-btn header-order" href="#order">🛒 অর্ডার করুন</a>
+
       <a class="header-btn header-whatsapp"
          href="https://wa.me/8801619246790"
-         target="_blank">💬 WhatsApp</a>
+         target="_blank">
+        💬 WhatsApp
+      </a>
     </div>
 
   </div>
@@ -862,6 +870,7 @@
 
       <div>
         <label>নাম *</label>
+
         <input type="text"
                id="name"
                required
@@ -871,6 +880,7 @@
 
       <div>
         <label>মোবাইল নম্বর *</label>
+
         <input type="tel"
                id="phone"
                required
@@ -1039,7 +1049,9 @@
              id="advanceInfo"
              style="display:none;">
 
-          <strong id="advanceTitle">💳 bKash-এ আগে দিতে হবে</strong>
+          <strong id="advanceTitle">
+            💳 bKash-এ আগে দিতে হবে
+          </strong>
 
           <p id="advanceAmount" style="margin-top:5px;"></p>
 
@@ -1746,4 +1758,4 @@
 </script>
 
 </body>
-</html>
+  </html>
