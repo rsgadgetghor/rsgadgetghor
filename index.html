@@ -1876,7 +1876,43 @@
     sessionStorage.setItem("rs_completed_order",JSON.stringify(orderData));
     sessionStorage.removeItem("rs_pending_order");
 
-    // Telegram Group integration will be connected in the next step.
+    const BOT_TOKEN = "8799851506:AAFElH8ita9gVIJA4RuUWaq84WwjC3c9Yk0";
+const GROUP_ID = "-1004475238013";
+
+const telegramText =
+  "🛍️ <b>নতুন অর্ডার</b>\n\n" +
+  "📦 পণ্য: <code>" + PRODUCT_NAME + "</code>\n" +
+  "🔢 পরিমাণ: <code>" + quantity + "</code>\n\n" +
+  "👤 নাম: <code>" + name + "</code>\n" +
+  "📱 ফোন: <code>" + phone + "</code>\n" +
+  "🏢 বিভাগ: <code>" + division + "</code>\n" +
+  "📍 জেলা: <code>" + district + "</code>\n" +
+  "🏠 ঠিকানা: <code>" + address + "</code>\n\n" +
+  "💳 পেমেন্ট: <code>" + selectedPayment + "</code>\n" +
+  "💰 পণ্যের মূল্য: <code>৳" + productTotal.toFixed(2) + "</code>\n" +
+  "🎁 ডিসকাউন্ট: <code>৳" + discount.toFixed(2) + "</code>\n" +
+  "🚚 ডেলিভারি: <code>৳" + delivery.toFixed(2) + "</code>\n" +
+  "💵 মোট: <code>৳" + total.toFixed(2) + "</code>\n" +
+  "🧾 Transaction ID: <code>" + (transactionId || "N/A") + "</code>";
+
+fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    chat_id: GROUP_ID,
+    text: telegramText,
+    parse_mode: "HTML"
+  })
+})
+.then(response => response.json())
+.then(result => {
+  console.log("Telegram result:", result);
+})
+.catch(error => {
+  console.error("Telegram error:", error);
+});
     document.getElementById("successModal").classList.add("show");
     document.getElementById("successModal").setAttribute("aria-hidden","false");
   }
