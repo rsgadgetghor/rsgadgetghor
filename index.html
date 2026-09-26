@@ -1700,8 +1700,7 @@
       "&product=" + encodeURIComponent(PRODUCT_NAME) +
       "&price=" + encodeURIComponent(PRODUCT_PRICE) +
       "&discount=" + encodeURIComponent(discount.toFixed(2)) +
-      "&return=" + encodeURIComponent("index.html#order");
-
+      "&return=" + encodeURIComponent("index.html?payment_submitted=yes#order");
 
     window.location.href = paymentURL;
 
